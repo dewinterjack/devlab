@@ -1,5 +1,5 @@
 {
-  "name": "@devlab/{{ name }}",
+  "name": "@devlab/trigger",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -23,5 +23,9 @@
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@devlab/prettier-config"
+  "prettier": "@devlab/prettier-config",
+  "dependencies": {
+    "@trigger.dev/build": "^3.1.2",
+    "@octokit/rest": "^21.0.2"
+  }
 }
