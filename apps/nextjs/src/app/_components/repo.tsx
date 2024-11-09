@@ -20,7 +20,7 @@ export function LatestRepo() {
 
   return (
     <div className="w-full max-w-xs">
-      {repos ? (
+      {repos.length > 0 ? (
         <p className="truncate">
           Your most recent repos:{" "}
           {repos.map((repo) => `${repo.owner}/${repo.name}`).join(", ")}
