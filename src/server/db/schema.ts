@@ -18,11 +18,12 @@ import {
  */
 export const createTable = pgTableCreator((name) => `devlab_${name}`);
 
-export const posts = createTable(
-  "post",
+export const repos = createTable(
+  "repo",
   {
     id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
-    name: varchar("name", { length: 256 }),
+    owner: varchar("owner", { length: 256 }).notNull(),
+    name: varchar("name", { length: 256 }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
@@ -30,7 +31,27 @@ export const posts = createTable(
       () => new Date()
     ),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
+  (table) => ({
+    ownerNameIndex: index("owner_name_idx").on(table.owner, table.name),
+  })
+);
+
+export const readmes = createTable(
+  "readme",
+  {
+    id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
+    repoId: integer("repo_id")
+      .notNull()
+      .references(() => repos.id),
+    content: varchar("content", { length: 65535 }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
+      () => new Date()
+    ),
+  },
+  (table) => ({
+    repoIdIndex: index("repo_id_idx").on(table.repoId),
   })
 );
