@@ -1,0 +1,44 @@
+{
+    "name": "@devlab/db",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./src/index.ts"
+      },
+      "./schema": {
+        "types": "./dist/schema.d.ts",
+        "default": "./src/schema.ts"
+      }
+    },
+    "license": "MIT",
+    "scripts": {
+      "build": "tsc",
+      "clean": "git clean -xdf .cache .turbo dist node_modules",
+      "dev": "tsc",
+      "format": "prettier --check . --ignore-path ../../.gitignore",
+      "lint": "eslint",
+      "push": "pnpm with-env drizzle-kit push",
+      "studio": "pnpm with-env drizzle-kit studio",
+      "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+      "with-env": "dotenv -e ../../.env --"
+    },
+    "dependencies": {
+      "drizzle-orm": "^0.35.1",
+      "zod": "catalog:"
+    },
+    "devDependencies": {
+      "@devlab/eslint-config": "workspace:*",
+      "@devlab/prettier-config": "workspace:*",
+      "@devlab/tsconfig": "workspace:*",
+      "dotenv-cli": "^7.4.2",
+      "drizzle-kit": "^0.26.2",
+      "eslint": "catalog:",
+      "prettier": "catalog:",
+      "typescript": "catalog:"
+    },
+    "prettier": "@devlab/prettier-config"
+  }
+  
