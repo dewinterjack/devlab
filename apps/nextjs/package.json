@@ -16,6 +16,7 @@
   "dependencies": {
     "@devlab/api": "workspace:*",
     "@devlab/db": "workspace:*",
+    "@devlab/jobs": "workspace:*",
     "@devlab/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "catalog:",
@@ -23,7 +24,7 @@
     "@trpc/react-query": "catalog:",
     "@trpc/server": "catalog:",
     "geist": "^1.3.0",
-    "next": "^15.0.1",
+    "next": "^14.2.15",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "server-only": "^0.0.1",

@@ -5,6 +5,8 @@ packages:
 
 catalog:
   "@tanstack/react-query": ^5.59.15
+  "@trigger.dev/build": ^3.1.2
+  "@trigger.dev/sdk": ^3.1.2
   "@trpc/client": ^11.0.0-rc.477
   "@trpc/react-query": ^11.0.0-rc.477
   "@trpc/server": ^11.0.0-rc.477

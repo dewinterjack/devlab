@@ -1,5 +1,5 @@
 {
-  "name": "@devlab/trigger",
+  "name": "@devlab/jobs",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -8,24 +8,24 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "dev": "tsc",
+    "dev": "pnpm dlx trigger.dev@3.1.2 dev",
+    "deploy": "pnpm dlx trigger.dev@3.1.2 deploy",
+    "clean": "git clean -xdf .cache .next .turbo .trigger node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@trigger.dev/sdk": "catalog:"
   },
   "devDependencies": {
     "@devlab/eslint-config": "workspace:*",
     "@devlab/prettier-config": "workspace:*",
     "@devlab/tsconfig": "workspace:*",
+    "@trigger.dev/build": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@devlab/prettier-config",
-  "dependencies": {
-    "@trigger.dev/build": "^3.1.2",
-    "@octokit/rest": "^21.0.2"
-  }
+  "prettier": "@devlab/prettier-config"
 }

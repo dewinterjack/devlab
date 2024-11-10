@@ -45,7 +45,7 @@
         "interactive": true
       }
     },
-    "globalEnv": ["DATABASE_URL"],
+    "globalEnv": ["DATABASE_URL", "TRIGGER_SECRET_KEY"],
     "globalPassThroughEnv": [
       "NODE_ENV",
       "CI",

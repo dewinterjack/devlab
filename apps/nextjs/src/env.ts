@@ -15,6 +15,7 @@ export const env = createEnv({
    */
   server: {
     DATABASE_URL: z.string().url(),
+    TRIGGER_SECRET_KEY: z.string(),
   },
 
   /**

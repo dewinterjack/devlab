@@ -12,6 +12,8 @@ const config = {
   transpilePackages: [
     "@devlab/api",
     "@devlab/db",
+    "@devlab/jobs",
+    "@devlab/ui",
   ],
 
   /** We already do linting and typechecking as separate tasks in CI */
