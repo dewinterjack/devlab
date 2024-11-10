@@ -43,6 +43,10 @@
       "ui-add": {
         "cache": false,
         "interactive": true
+      },
+      "deploy-trigger": {
+        "cache": false,
+        "interactive": false
       }
     },
     "globalEnv": ["DATABASE_URL", "TRIGGER_SECRET_KEY"],

@@ -23,6 +23,7 @@
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add",
+    "deploy-trigger": "turbo run deploy-trigger",
     "package-add": "turbo gen init"
   },
   "devDependencies": {

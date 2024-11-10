@@ -9,13 +9,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "pnpm dlx trigger.dev@3.1.2 dev",
-    "deploy": "pnpm dlx trigger.dev@3.1.2 deploy",
+    "deploy-trigger": "pnpm dlx trigger.dev@3.1.2 deploy",
     "clean": "git clean -xdf .cache .next .turbo .trigger node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@octokit/rest": "^21.0.2",
     "@trigger.dev/sdk": "catalog:"
   },
   "devDependencies": {
