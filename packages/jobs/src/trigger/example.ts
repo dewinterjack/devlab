@@ -1,4 +1,4 @@
-import { logger, task, wait } from "@trigger.dev/sdk/v3";
+import { logger, tags, task, wait } from "@trigger.dev/sdk/v3";
 
 export const helloWorldTask = task({
   id: "hello-world",
@@ -7,6 +7,7 @@ export const helloWorldTask = task({
     logger.log("Hello, world!", { payload, ctx });
 
     await wait.for({ seconds: 3 });
+    await tags.add("devlab");
 
     return {
       message: "Hello, world!",

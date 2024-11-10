@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useDevlabRuns } from "@/hooks/use-devlab-runs";
 import { Button } from "@devlab/ui/button";
-
-import { api } from "../../trpc/react";
 import { Input } from "@devlab/ui/input";
 
+import { api } from "../../trpc/react";
+
 export function LatestRepo() {
+  const { repoRuns } = useDevlabRuns();
+
   const [repos] = api.repo.getAll.useSuspenseQuery();
 
   const utils = api.useUtils();
@@ -49,13 +52,15 @@ export function LatestRepo() {
           value={owner}
           onChange={(e) => setOwner(e.target.value)}
         />
-        <Button
-          type="submit"
-          disabled={createRepo.isPending}
-        >
+        <Button type="submit" disabled={createRepo.isPending}>
           {createRepo.isPending ? "Submitting..." : "Submit"}
         </Button>
       </form>
+      <div>
+        {repoRuns.map((run) => (
+          <div key={run.id}>Readme: {run.output?.readme}</div>
+        ))}
+      </div>
     </div>
   );
 }
