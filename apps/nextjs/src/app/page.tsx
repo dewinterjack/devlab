@@ -16,9 +16,9 @@ export default async function Home() {
 
           <div className="flex flex-col items-center gap-2">
             <p className="text-2xl text-white">
-              {repos
+              {repos.length > 0
                 ? repos.map((repo) => `${repo.owner}/${repo.name}`).join(", ")
-                : "Loading tRPC query..."}
+                : "No repos found"}
             </p>
           </div>
 
