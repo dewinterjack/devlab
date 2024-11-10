@@ -1,3 +1,1 @@
-import { helloWorldTask } from "@devlab/jobs";
-
-export { helloWorldTask };
+export * from "@devlab/jobs";
