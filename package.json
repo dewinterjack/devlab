@@ -13,6 +13,7 @@
     "clean:workspaces": "turbo run clean",
     "db:push": "turbo -F @devlab/db push",
     "db:studio": "turbo -F @devlab/db studio",
+    "db:generate-migrations": "turbo -F @devlab/db generate-migrations",
     "dev": "turbo dev --continue",
     "dev:next": "turbo run dev -F @devlab/nextjs...",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
