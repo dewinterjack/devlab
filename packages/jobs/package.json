@@ -18,13 +18,13 @@
   },
   "dependencies": {
     "@octokit/rest": "^21.0.2",
-    "@trigger.dev/sdk": "catalog:"
+    "@trigger.dev/sdk": "catalog:trigger"
   },
   "devDependencies": {
     "@devlab/eslint-config": "workspace:*",
     "@devlab/prettier-config": "workspace:*",
     "@devlab/tsconfig": "workspace:*",
-    "@trigger.dev/build": "catalog:",
+    "@trigger.dev/build": "catalog:trigger",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

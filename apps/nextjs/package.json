@@ -19,6 +19,7 @@
     "@devlab/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "catalog:",
+    "@trigger.dev/react-hooks": "catalog:trigger",
     "@trpc/client": "catalog:",
     "@trpc/react-query": "catalog:",
     "@trpc/server": "catalog:",
