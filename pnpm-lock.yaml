@@ -84,9 +84,6 @@ importers:
       '@devlab/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@devlab/jobs':
-        specifier: workspace:*
-        version: link:../../packages/jobs
       '@devlab/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -182,6 +179,9 @@ importers:
       '@devlab/db':
         specifier: workspace:*
         version: link:../db
+      '@devlab/jobs':
+        specifier: workspace:*
+        version: link:../jobs
       '@trpc/server':
         specifier: 'catalog:'
         version: 11.0.0-rc.621

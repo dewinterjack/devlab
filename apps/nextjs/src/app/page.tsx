@@ -1,5 +1,6 @@
 import { api, HydrateClient } from "../trpc/server";
 import { LatestRepo } from "./_components/repo";
+import { TriggerExample } from "./_components/trigger-example";
 
 export default async function Home() {
   const repos = await api.repo.getAll();
@@ -23,6 +24,7 @@ export default async function Home() {
           </div>
 
           <LatestRepo />
+          <TriggerExample />
         </div>
       </main>
     </HydrateClient>

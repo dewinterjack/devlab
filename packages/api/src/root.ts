@@ -1,4 +1,5 @@
 import { repoRouter } from "./router/repo";
+import { triggerRouter } from "./router/trigger";
 import { createCallerFactory, createTRPCRouter } from "./trpc";
 
 /**
@@ -8,6 +9,7 @@ import { createCallerFactory, createTRPCRouter } from "./trpc";
  */
 export const appRouter = createTRPCRouter({
   repo: repoRouter,
+  trigger: triggerRouter,
 });
 
 // export type definition of API

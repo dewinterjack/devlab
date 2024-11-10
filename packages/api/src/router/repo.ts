@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { repos } from "@devlab/db/schema";
+import { tasks } from "@trigger.dev/sdk/v3";
+import type { helloWorldTask } from "@devlab/jobs";
 
 export const repoRouter = createTRPCRouter({
   create: publicProcedure
@@ -13,6 +15,12 @@ export const repoRouter = createTRPCRouter({
         owner: input.owner,
         name: input.name,
       }).returning();
+
+      await tasks.trigger<typeof helloWorldTask>(
+        "hello-world",
+        "James",
+      );
+      
       return repo;
     }),
 
