@@ -7,8 +7,9 @@ import type { helloWorldTask } from "../../../packages/jobs/src/trigger/example.
 console.log("Hello from Functions!");
 
 Deno.serve(async (req) => {
-  // const payload = await req.json();
-  await tasks.trigger<typeof helloWorldTask>("hello-world", "Jack");
+  const payload = await req.json();
+  const repoFullName = payload.record.owner + "/" + payload.record.name;
+  await tasks.trigger<typeof helloWorldTask>("hello-world", repoFullName);
 
   return new Response("ok");
 });
