@@ -51,6 +51,10 @@
     "deploy-trigger": {
       "cache": false,
       "interactive": false
+    },
+    "//#serve-functions": {
+      "cache": false,
+      "persistent": false
     }
   },
   "globalEnv": ["DATABASE_URL", "TRIGGER_SECRET_KEY"],
