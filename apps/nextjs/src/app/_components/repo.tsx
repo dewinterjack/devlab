@@ -56,7 +56,7 @@ export function Repo() {
               <ReactMarkdown
                 children={run.output.readme}
                 components={{
-                  h1: ({ children }) => {
+                  h1({ children }) {
                     return <h1 className="text-2xl font-bold">{children}</h1>;
                   },
                   code({ inline, className, children, ...props }) {
@@ -65,7 +65,6 @@ export function Repo() {
                       <SyntaxHighlighter
                         children={String(children).replace(/\n$/, "")}
                         // @ts-expect-error dark is a valid style
-                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                         style={dark}
                         language={match[1]}
                         PreTag="div"
@@ -75,7 +74,6 @@ export function Repo() {
                       <SyntaxHighlighter
                         children={String(children).replace(/\n$/, "")}
                         // @ts-expect-error dark is a valid style
-                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                         style={dark}
                         PreTag="div"
                         {...props}
