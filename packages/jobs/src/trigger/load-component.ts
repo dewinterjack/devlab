@@ -7,7 +7,7 @@ export const loadComponentTask = task({
   id: "load",
   maxDuration: 300,
   run: async (payload: { component: string }, { ctx }) => {
-    await tags.add("devlab");
+    await tags.add("component");
 
     const config = {
       owner: "dewinterjack",

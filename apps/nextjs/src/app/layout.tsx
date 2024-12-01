@@ -23,7 +23,7 @@ export default async function RootLayout({
   const publicToken = await auth.createPublicToken({
     scopes: {
       read: {
-        tags: ["devlab"],
+        tags: ["devlab", "component"],
       },
     },
   });

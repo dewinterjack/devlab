@@ -12,15 +12,16 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@devlab/ui/sidebar";
-import { GitBranch, Zap } from "lucide-react";
+import { GitBranch, Library, Zap } from "lucide-react";
 
+import ComponentLibrary from "./component-library";
 import { Repo } from "./repo";
 import { TriggerExample } from "./trigger-example";
 
 export function Client() {
-  const [activeComponent, setActiveComponent] = useState<"repo" | "trigger">(
-    "repo",
-  );
+  const [activeComponent, setActiveComponent] = useState<
+    "repo" | "trigger" | "library"
+  >("repo");
   return (
     <SidebarProvider>
       <main className="flex w-full">
@@ -48,6 +49,15 @@ export function Client() {
                       <span>Trigger Example</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      onClick={() => setActiveComponent("library")}
+                      isActive={activeComponent === "library"}
+                    >
+                      <Library className="mr-2 h-4 w-4" />
+                      <span>Component Library</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
@@ -55,7 +65,13 @@ export function Client() {
         </Sidebar>
         <div className="flex-1">
           <div className="mx-auto flex max-w-screen-sm flex-col gap-12 px-4 py-16">
-            {activeComponent === "repo" ? <Repo /> : <TriggerExample />}
+            {activeComponent === "repo" ? (
+              <Repo />
+            ) : activeComponent === "trigger" ? (
+              <TriggerExample />
+            ) : (
+              <ComponentLibrary />
+            )}
           </div>
         </div>
       </main>
