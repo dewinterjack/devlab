@@ -1,0 +1,1 @@
+ALTER TABLE "devlab_repo" ADD COLUMN "commit_sha" varchar(256);

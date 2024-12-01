@@ -9,6 +9,7 @@ export const repoRouter = createTRPCRouter({
       z.object({
         owner: z.string().min(1),
         name: z.string().min(1),
+        commitHash: z.string().min(1),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -17,6 +18,7 @@ export const repoRouter = createTRPCRouter({
         .values({
           owner: input.owner,
           name: input.name,
+          commit_sha: input.commitHash,
         })
         .returning();
 

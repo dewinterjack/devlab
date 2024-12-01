@@ -16,11 +16,14 @@ export function Repo() {
   const utils = api.useUtils();
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
+  const [commitHash, setCommitHash] = useState("");
+
   const createRepo = api.repo.create.useMutation({
     onSuccess: async () => {
       await utils.repo.invalidate();
       setName("");
       setOwner("");
+      setCommitHash("");
     },
   });
 
@@ -29,7 +32,7 @@ export function Repo() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createRepo.mutate({ owner, name });
+          createRepo.mutate({ owner, name, commitHash });
         }}
         className="flex flex-col gap-2"
       >
@@ -44,6 +47,12 @@ export function Repo() {
           placeholder="Owner"
           value={owner}
           onChange={(e) => setOwner(e.target.value)}
+        />
+        <Input
+          type="text"
+          placeholder="Commit Hash"
+          value={commitHash}
+          onChange={(e) => setCommitHash(e.target.value)}
         />
         <Button type="submit" disabled={createRepo.isPending}>
           {createRepo.isPending ? "Submitting..." : "Submit"}

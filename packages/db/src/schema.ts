@@ -24,16 +24,17 @@ export const repos = createTable(
     id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
     owner: varchar("owner", { length: 256 }).notNull(),
     name: varchar("name", { length: 256 }).notNull(),
+    commit_sha: varchar("commit_sha", { length: 256 }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
+      () => new Date(),
     ),
   },
   (table) => ({
     ownerNameIndex: index("owner_name_idx").on(table.owner, table.name),
-  })
+  }),
 );
 
 export const readmes = createTable(
@@ -48,10 +49,10 @@ export const readmes = createTable(
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
+      () => new Date(),
     ),
   },
   (table) => ({
     repoIdIndex: index("repo_id_idx").on(table.repoId),
-  })
+  }),
 );
